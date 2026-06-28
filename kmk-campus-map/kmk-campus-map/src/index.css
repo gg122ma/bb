@@ -1,0 +1,43 @@
+/* ============================================================
+   文件：index.css
+   职责：全局样式定义
+         - 引入 Tailwind CSS
+         - 自定义滚动条（用于记忆墙列表）
+         - Canvas 基础样式
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* --- 自定义细滚动条（用于 .custom-scrollbar 的元素）--- */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 99px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Three.js Canvas 基础样式 --- */
+/* 去除 Canvas 点击时的蓝色外框 */
+canvas {
+  outline: none;
+  user-select: none; /* 防止拖拽时选中文字 */
+}
+
+/* --- 全局字体渲染优化 --- */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 防止页面滚动（全屏 3D 场景）--- */
+body {
+  overflow: hidden;
+  background: #0f172a; /* 与 Canvas 背景色一致，防止闪白 */
+}
